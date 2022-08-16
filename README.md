@@ -91,16 +91,22 @@ vector<float> data = {
 #include "SMA.h"
 #include "TMA.h"
 
-SMA<float> smaf(7);
-TMA<float> tmaf(7,7);
+SMA<float> smaf(7);   //  N = 7
+TMA<float> tmaf(7,7); //  N = 7,  M = 7  (first and second window sizes)
 
 int main()
 {
     cout << "raw,sma,tma" << endl;
     for (auto& v : data) {
-        smaf.write(v);
-        tmaf.write(v);
-        cout << v << "," << smaf.read() << "," << tmaf.read() << endl;
+    
+        smaf.write(v); // O(1) complexity
+        tmaf.write(v); // O(N) complexity
+        cout << v << ","; 
+        cout << smaf.read(); // O(N) complexity
+        cout << "," << tmaf.read(); // O(M) complexity
+        cout << endl;
+        
+        //  Note that doing a TMA write and read at the same time implies O(N+M) complexity
     }
 
     return 0;
