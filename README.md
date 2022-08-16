@@ -69,3 +69,40 @@ Example table using window sizes of 7 for both SMA and TMA
 |0   |0      |0       |
 |0   |0      |0       |
 |0   |0      |0       |
+
+
+## Code example
+
+```c++
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<float> data = {
+    0,0,0,0,0,0,0,0,0,10,0,
+    10,0,10,0,10,10,0,10,10,
+    10,0,10,10,10,10,10,10,10,
+    10,10,0,10,0,10,0,0,10,0,
+    0,10,0,0,0,10,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0
+};
+
+#include "SMA.h"
+#include "TMA.h"
+
+SMA<float> smaf(7);
+TMA<float> tmaf(7,7);
+
+int main()
+{
+    cout << "raw,sma,tma" << endl;
+    for (auto& v : data) {
+        smaf.write(v);
+        tmaf.write(v);
+        cout << v << "," << smaf.read() << "," << tmaf.read() << endl;
+    }
+
+    return 0;
+}
+```
