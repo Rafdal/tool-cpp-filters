@@ -8,7 +8,7 @@ template <typename T>
 class EMA
 {
 public:
-    EMA(T a) // alpha is a value between 0 and 1
+    EMA(float a) // alpha is a value between 0 and 1
     {
         if(a > 0 && a < 1)
         {
@@ -16,18 +16,22 @@ public:
         }
         else
         {
-            alpha = (T)0.3; // default value
+            alpha = 0.3; // default value
         }
-        value = (T)0;
+        value = 0;
     }
     ~EMA(){}
 
     void write(T val);
-    T read();
+    
+    inline T read()
+    {
+        return (T)value;
+    }
 
 private:
-    T alpha;
-    T value;
+    float alpha;
+    double value;
 };
 
 #endif

@@ -12,8 +12,7 @@ void SMA<T>::write(T val)
     {
         sum += (double)dataBuffer[i];
     }
-    sum = sum / bufSize;
-    value = (T)(sum);
+    value = (T)(sum / bufSize);
 }
 
 template class SMA<float>;
