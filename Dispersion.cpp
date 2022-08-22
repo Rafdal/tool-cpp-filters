@@ -23,7 +23,7 @@ void Dispersion<T>::write(T val, T mean)
         sum += (x - mean_d) * (x - mean_d);
     }
     
-    value = (T)sqrt(sum);
+    value = (T)sqrt(sum / bufSize);
 }
 
 template <typename T>
