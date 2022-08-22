@@ -1,13 +1,13 @@
-#ifndef SMA_H
-#define SMA_H
+#ifndef Dispersion_H
+#define Dispersion_H
 
-// Simple Moving Average (SMA) Filter implemented with a circular buffer
+// Dispersion Filter implemented with a circular buffer
 
 template <typename T>
-class SMA
+class Dispersion
 {
 public:
-    SMA(unsigned int windowSize)
+    Dispersion(unsigned int windowSize)
     {
         bufSize = windowSize;
         dataBuffer = new T[windowSize];
@@ -18,23 +18,25 @@ public:
         }
         pos = 0;
     }
-    ~SMA()
+    ~Dispersion()
     {
         delete[] dataBuffer;
     }
 
     void write(T val);
-    
+    void write(T val, T mean);
     inline T read()
     {
         return value;
     }
 
 private:
-    T* dataBuffer;  
-    T value;  
+    T* dataBuffer;   
+    T value; 
     int bufSize;
     int pos = 0;
+
+    T defaultMean();
 };
 
 #endif

@@ -14,3 +14,5 @@ bool Schmitt<T>::filter(T val)
 template class Schmitt<float>;
 template class Schmitt<double>;
 template class Schmitt<int>;
+template class Schmitt<signed char>;
+template class Schmitt<unsigned char>;

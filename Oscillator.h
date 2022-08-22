@@ -1,13 +1,13 @@
-#ifndef SMA_H
-#define SMA_H
+#ifndef Oscillator_H
+#define Oscillator_H
 
-// Simple Moving Average (SMA) Filter implemented with a circular buffer
+// Oscillator Filter implemented with a circular buffer
 
 template <typename T>
-class SMA
+class Oscillator
 {
 public:
-    SMA(unsigned int windowSize)
+    Oscillator(unsigned int windowSize)
     {
         bufSize = windowSize;
         dataBuffer = new T[windowSize];
@@ -18,21 +18,20 @@ public:
         }
         pos = 0;
     }
-    ~SMA()
+    ~Oscillator()
     {
         delete[] dataBuffer;
     }
 
     void write(T val);
-    
     inline T read()
     {
         return value;
     }
 
 private:
-    T* dataBuffer;  
-    T value;  
+    T* dataBuffer;    
+    T value;
     int bufSize;
     int pos = 0;
 };

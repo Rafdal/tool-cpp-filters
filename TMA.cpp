@@ -17,3 +17,4 @@ template class TMA<float>;
 template class TMA<double>;
 template class TMA<int>;
 template class TMA<signed char>;
+template class TMA<unsigned char>;
