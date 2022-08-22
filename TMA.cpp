@@ -16,3 +16,4 @@ T TMA<T>::read()
 template class TMA<float>;
 template class TMA<double>;
 template class TMA<int>;
+template class TMA<signed char>;
