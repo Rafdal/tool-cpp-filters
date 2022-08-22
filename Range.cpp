@@ -1,7 +1,7 @@
-#include "Oscillator.h"
+#include "Range.h"
 
 template<typename T> 
-void Oscillator<T>::write(T val)
+void Range<T>::write(T val)
 {
     dataBuffer[pos++] = val;
     if(pos == bufSize)
@@ -20,8 +20,8 @@ void Oscillator<T>::write(T val)
     value = (max - min);
 }
 
-template class Oscillator<float>;
-template class Oscillator<double>;
-template class Oscillator<int>;
-template class Oscillator<signed char>;
-template class Oscillator<unsigned char>;
+template class Range<float>;
+template class Range<double>;
+template class Range<int>;
+template class Range<signed char>;
+template class Range<unsigned char>;
