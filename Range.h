@@ -1,13 +1,14 @@
-#ifndef Oscillator_H
-#define Oscillator_H
+#ifndef Range_H
+#define Range_H
 
-// Oscillator Filter implemented with a circular buffer
+// Range Filter implemented with a circular buffer
+// Is recommended to use it with a Low Pass Filter
 
 template <typename T>
-class Oscillator
+class Range
 {
 public:
-    Oscillator(unsigned int windowSize)
+    Range(unsigned int windowSize)
     {
         bufSize = windowSize;
         dataBuffer = new T[windowSize];
@@ -18,7 +19,7 @@ public:
         }
         pos = 0;
     }
-    ~Oscillator()
+    ~Range()
     {
         delete[] dataBuffer;
     }
