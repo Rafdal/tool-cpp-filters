@@ -1,13 +1,13 @@
-#ifndef Dispersion_H
-#define Dispersion_H
+#ifndef Deviation_H
+#define Deviation_H
 
-// Dispersion Filter implemented with a circular buffer
+// Deviation Filter implemented with a circular buffer
 
 template <typename T>
-class Dispersion
+class Deviation
 {
 public:
-    Dispersion(unsigned int windowSize)
+    Deviation(unsigned int windowSize)
     {
         bufSize = windowSize;
         dataBuffer = new T[windowSize];
@@ -18,7 +18,7 @@ public:
         }
         pos = 0;
     }
-    ~Dispersion()
+    ~Deviation()
     {
         delete[] dataBuffer;
     }
@@ -33,8 +33,8 @@ public:
 private:
     T* dataBuffer;   
     T value; 
-    int bufSize;
-    int pos = 0;
+    unsigned int bufSize;
+    unsigned int pos = 0;
 
     T defaultMean();
 };

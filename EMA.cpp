@@ -9,5 +9,5 @@ void EMA<T>::write(T newval)
 template class EMA<float>;
 template class EMA<double>;
 template class EMA<int>;
-template class EMA<signed char>;
 template class EMA<unsigned char>;
+template class EMA<char>;

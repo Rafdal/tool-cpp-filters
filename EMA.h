@@ -16,7 +16,7 @@ public:
         }
         else
         {
-            alpha = 0.3; // default value
+            alpha = 0.3f; // default value
         }
         value = 0;
     }

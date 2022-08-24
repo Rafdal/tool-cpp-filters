@@ -1,14 +1,14 @@
-#include "Dispersion.h"
+#include "Deviation.h"
 #include <math.h>
 
 template<typename T> 
-void Dispersion<T>::write(T val)
+void Deviation<T>::write(T val)
 {
     write(val, defaultMean());
 }
 
 template<typename T>
-void Dispersion<T>::write(T val, T mean)
+void Deviation<T>::write(T val, T mean)
 {
     dataBuffer[pos++] = val;
     if(pos == bufSize)
@@ -27,7 +27,7 @@ void Dispersion<T>::write(T val, T mean)
 }
 
 template <typename T>
-T Dispersion<T>::defaultMean()
+T Deviation<T>::defaultMean()
 {
     double mean = 0;
     for(unsigned int i=0; i < bufSize; i++)
@@ -36,8 +36,8 @@ T Dispersion<T>::defaultMean()
     return (T)(mean / bufSize);
 }
 
-template class Dispersion<float>;
-template class Dispersion<double>;
-template class Dispersion<int>;
-template class Dispersion<signed char>;
-template class Dispersion<unsigned char>;
+template class Deviation<float>;
+template class Deviation<double>;
+template class Deviation<int>;
+template class Deviation<signed char>;
+template class Deviation<unsigned char>;
