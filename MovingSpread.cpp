@@ -1,7 +1,5 @@
 #include "MovingSpread.h"
 
-#include <math.h>
-
 template<typename T> 
 void MovingSpread<T>::write(T newval)
 {
